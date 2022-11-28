@@ -55,30 +55,23 @@ class JavaBasic {
     // .equals!!!!!!!!!!!
     System.out.println(name1.equals(name3));
 
-    // 5. methods (overloading methods)
 
-
-    // 6. dependency injection (using methods in another file)
-
-
-    // -------------- Alfred Bot ------------------
-
-
-    // 8. Fixed Array
-
-
-    // 9. ArrayList
-
-
-    // 10. For-loop & enhanced for-loop
-
+    
 
     // -------------- Cafe Business Logic --------------
 
     // 7. Casting (implicit & explicit, Null VALUE)
 
+    // implicit: int --> double , no loss of data 
+    int intAge = 14; //14
+    double intToDoubleAge = intAge; // 14.000
+    System.out.println(intToDoubleAge);
 
-    // 11. Maps 
+    // explicit: double --> int , loss of data 
+    double doubleAge = 14.5; // 14.5
+    int doubleToIntAge = (int) doubleAge; // 14, 15
+    System.out.println(doubleToIntAge);
+
     }
 }
 
