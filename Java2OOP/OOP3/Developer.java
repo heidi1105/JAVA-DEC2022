@@ -7,6 +7,9 @@ public class Developer{
     private int happiness;
     private boolean hasLife;
     private double salary;
+    private static int devCount;// default of int: 0 
+    // Integer : null 
+    private static double totalSalary;
 
 
     // 2. Constructor
@@ -16,6 +19,8 @@ public class Developer{
         this.happiness = 8;
         this.hasLife = false;
         this.salary = 100000;
+        devCount++;
+        totalSalary += this.salary;
     }
 
     public Developer(String name){
@@ -25,6 +30,8 @@ public class Developer{
         this.happiness = 7;
         this.hasLife = true;
         this.salary = 120000;
+        devCount++;
+        totalSalary += this.salary;
     }
 
     public Developer(String name, double salary){
@@ -35,6 +42,8 @@ public class Developer{
         this.happiness = 9;
         this.hasLife = true;
         this.salary = salary;
+        devCount++;
+        totalSalary += this.salary;
     }
 
     // 3. getters/setters
@@ -93,6 +102,20 @@ public class Developer{
         System.out.println("Languages: " + this.languages);        
     }
 
+    public void raiseSalary(int raise){
+        System.out.println(this.name + " is having a salary raise of "+ raise);
+        this.salary += raise;
+        totalSalary += raise;
+    }
+
+    // getter
+    public static int getDevCount(){
+        return devCount;
+    }
+
+    public static double getTotalSalary(){
+        return totalSalary;
+    }
 
 
 
