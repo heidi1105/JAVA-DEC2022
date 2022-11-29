@@ -39,8 +39,6 @@ class VoiceMessageTest {
         System.out.println("ArrayList size :" +reminders.size());
 
         
-        // 10. For-loop & enhanced for-loop
-
 
 
 
