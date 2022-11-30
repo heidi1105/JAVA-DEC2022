@@ -19,7 +19,7 @@ public class DeveloperTest{
         System.out.println("Developer count:  " + Developer.getDevCount());
         System.out.println("Total Salary:  " + Developer.getTotalSalary());
 
-        dev3.raiseSalary(1);
+        dev3.raiseSalary(1).raiseSalary(10).display();
         dev3.display();
         System.out.println("Total Salary:  " + Developer.getTotalSalary());
     }

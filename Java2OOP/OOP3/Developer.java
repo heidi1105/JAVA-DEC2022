@@ -102,10 +102,12 @@ public class Developer{
         System.out.println("Languages: " + this.languages);        
     }
 
-    public void raiseSalary(int raise){
+    // To chain the methods, return this and don't forget to specify the return datatype. 
+    public Developer raiseSalary(int raise){
         System.out.println(this.name + " is having a salary raise of "+ raise);
         this.salary += raise;
         totalSalary += raise;
+        return this;
     }
 
     // getter
