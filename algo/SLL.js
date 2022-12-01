@@ -116,6 +116,99 @@ class SLL {
     this.head = this.head.next;
     return oldHead.data;
   }
+
+ // --------------W1D4----------------
+    /**
+   * Determines whether or not the given search value exists in this list.
+   * @param {any} val The data to search for in the nodes of this list.
+   * @returns {boolean}
+   */
+  contains(data) {
+    var runner = this.head;
+    while (runner) {
+      if (runner.data == data) {
+        return true;
+      }
+      console.log(runner.data);
+      runner = runner.next;
+    }
+    return false;
+  }
+
+  /**
+   * Removes the last node of this list.
+   * @returns {any} The data from the node that was removed.
+   */
+  removeBack() {
+    var runner = this.head;
+    if(!this.head){
+      return null;
+    }
+    if(!this.head.next){
+      var data = this.head.data
+      this.head = null
+      return data
+    }
+        //stops at second to last
+    while (runner.next.next) {
+      runner = runner.next;
+    }
+    //gets data from last
+    var data = runner.next.data;
+    //points away from last
+    runner.next = null;
+    return data;
+  }
+
+
+
+/**
+ * Determines whether or not the given search value exists in this list.
+ * - Time: O(?).
+ * - Space: O(?).
+ * @param {any} val The data to search for in the nodes of this list.
+ * @param {?ListNode} current The current node during the traversal of this list
+ *    or null when the end of the list has been reached.
+ * @returns {boolean}
+ */
+  containsRecursive(val, current) {
+    if (current.data == val){
+      return true;
+    }
+    else if (current.next){
+      return this.containsRecursive(val, current.next);
+    }
+    else{
+      return false;
+    }
+  }
+
+// EXTRA
+/**
+ * Recursively finds the maximum integer data of the nodes in this list.
+ * - Time: O(?).
+ * - Space: O(?).
+ * @param {ListNode} runner The start or current node during traversal, or null
+ *    when the end of the list is reached.
+ * @param {ListNode} maxNode Keeps track of the node that contains the current
+ *    max integer as it's data.
+ * @returns {?number} The max int or null if none.
+ */
+  recursiveMax(runner, maxNode) {
+    if (runner.data > maxNode){
+        maxNode = runner.data;
+    }
+    
+    if (runner.next){
+      return this.recursiveMax(runner.next, maxNode)
+    }
+
+    else{
+      return maxNode;
+    }
+  }
+
+
   
   //given
   printList() {
