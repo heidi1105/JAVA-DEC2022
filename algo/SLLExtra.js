@@ -85,7 +85,18 @@ class ListNode{
   //       HEAD
   // list2: (1) --> (2) --> (3) --> null
   
-  
+  var node1 = new ListNode(1);
+  var node2 = new ListNode(2);
+  var node3 = new ListNode(3);
+  var node4 = new ListNode(4);
+  node1.next = node2;
+  node2.next = node3;
+  node3.next = node4;
+  node4.next = node2;
+  var loopedList = new SLL();
+  loopedList.head = node1;
+
+
   list1.printList();
   list2.printList();
   

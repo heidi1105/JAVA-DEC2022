@@ -208,8 +208,57 @@ class SLL {
     }
   }
 
+// -----------W1D5 -------------
+ 
+  // ----------- W1D5 ---------------
+   secondToLast() {
+    if (!this.head || !this.head.next) {
+      return null;
+    }
 
-  
+    // There are at least 2 nodes since the above return hasn't happened.
+    let runner = this.head;
+
+    while (runner.next.next) {
+      runner = runner.next;
+    }
+    return runner.data;
+  }
+
+  removeData(data){
+    // if the list is empty, return
+    if(!this.head){
+      return
+    }
+    
+    let prev = this.head;
+    let curr = prev;
+    
+    while(prev == curr ){ 
+      // if the head contains the data, we move the head 
+      if(curr.data === data){
+        this.head = curr.next;
+        prev = this.head;
+        curr = prev;
+      }else{
+        // if the head does not contain the data, curr moves
+        curr = curr.next; 
+      }
+    }
+
+    while(curr && curr.next){
+      // if curr matches the data to be removed
+      if (curr.data == data){
+        prev.next = curr.next;
+        curr = curr.next;
+      }else{
+        prev = prev.next;
+        curr = curr.next;  
+      }
+    }
+  }
+
+
   //given
   printList() {
     // if the list is empty?
