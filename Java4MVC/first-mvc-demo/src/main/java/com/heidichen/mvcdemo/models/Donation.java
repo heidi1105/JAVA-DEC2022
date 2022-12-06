@@ -26,7 +26,7 @@ public class Donation {
     private Long id;
     
     @NotNull
-    @Size(min = 5, max = 200)
+    @Size(min = 2, max = 200)
     private String donationName;
     
     @NotNull
