@@ -32,6 +32,10 @@
    						<td> <c:out value="${eachDonation.donor }" /></td>
    						<td>
    						<a href="/donations/edit/${eachDonation.id }" >Edit</a>
+   						<form:form method="post" action="/donations/delete/${eachDonation.id }">
+   							<input type="hidden" name="_method" value="delete" />
+   							<button type="submit"> Delete</button>
+   						</form:form>
    						</td>
    						
    					</tr>

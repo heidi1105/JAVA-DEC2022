@@ -14,6 +14,7 @@
 	<h1>New Donation</h1>
 	<form:form action="/donations/new" method="POST"
 		modelAttribute="newDonation">
+
 		<p>
 			<form:label path="donationName">Donation Name: </form:label>
 			<form:input path="donationName" />

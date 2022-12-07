@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -66,6 +67,8 @@ public class HomeController {
 		}
 	}
 	
+	// Testing: 1. Display the form? 2. validation? 3. success submit
+	
 	
 	// EDIT form
 	// Display the form
@@ -78,7 +81,7 @@ public class HomeController {
 	
 	
 	
-	// process the form
+	// process the form *** with {id} : update |  without {id}: create
 	@PutMapping("/donations/edit/{id}")
 	public String processUpdate(@Valid @ModelAttribute("donation") Donation donation, 
 			BindingResult result, @PathVariable("id")Long id) {
@@ -86,8 +89,15 @@ public class HomeController {
 			return "editDonationForm.jsp";
 		}else {
 			donationService.updateDonation(donation);
-			return "redirect:/donations";
+			return "redirect:/donations/{id}";
 		}
+	}
+	
+	// DELETE
+	@DeleteMapping("/donations/delete/{id}")
+	public String deleteDonation(@PathVariable("id")Long id) {
+		donationService.deleteDonation(id);
+		return "redirect:/donations";
 	}
 	
 	
@@ -116,6 +126,8 @@ public class HomeController {
 		donationService.addDonation(newDonation);
 		return "redirect:/donations";
 	}
+	
+	
 	
 	
 	
