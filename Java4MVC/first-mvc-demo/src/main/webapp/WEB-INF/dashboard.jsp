@@ -13,12 +13,15 @@
 <body>
    <div>
 		<h1> Donation Dashboard</h1>
+		<p> <a href="/donations2/new"> New Donation (OLD WAYS)</a> </p>
+		<p> <a href="/donations/new"> New Donation</a> </p>
    		<table>
    			<thead>
    				<tr>
    					<th> Donation </th>
    					<th> Quantity </th>
    					<th> Donor </th>
+   					<th> Actions </th>
    				</tr>
    			</thead>
    			<tbody>
@@ -27,6 +30,10 @@
    						<td> <a href="/donations/${eachDonation.id }" ><c:out value="${eachDonation.donationName }" /></a></td>
    						<td> <c:out value="${eachDonation.quantity }" /></td>
    						<td> <c:out value="${eachDonation.donor }" /></td>
+   						<td>
+   						<a href="/donations/edit/${eachDonation.id }" >Edit</a>
+   						</td>
+   						
    					</tr>
    				</c:forEach>
    			

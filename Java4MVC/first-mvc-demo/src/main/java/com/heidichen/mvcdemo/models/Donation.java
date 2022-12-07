@@ -20,13 +20,13 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Table(name="donations") // the MySQL table name // userName 
 public class Donation {
 	// 1. attributes
-	
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
     @NotNull
-    @Size(min = 2, max = 200)
+    @Size(min = 2, max = 200, message="Donation name must be at least 2 characters")
     private String donationName;
     
     @NotNull
@@ -34,7 +34,7 @@ public class Donation {
     private String donor;
     
     @NotNull
-    @Min(0)
+    @Min(value=0, message="Quantity must be positive")
     private Integer quantity;
     
     @NotNull
