@@ -41,7 +41,7 @@ public class Donation {
     
     // MANY TO ONE
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="donor_id")
+    @JoinColumn(name="donor_id") // in MySQL foreign key
     private User donor;
     
     
