@@ -167,6 +167,93 @@ class BinarySearchTree {
     if(this.isEmpty())return null;
     return this.max()-this.min();
   }
+  // ------------W2D3 --------------
+  
+  /**
+   * Inserts a new node with the given newVal in the right place to preserver
+   * the order of this tree.
+   * - Time: O(?).
+   * - Space: O(?).
+   * @param {number} newVal The data to be added to a new node.
+   * @returns {BinarySearchTree} This tree.
+   */
+  insert(newVal) {
+     var runner = this.root
+    if(this.root == null)
+    {
+      this.root = new BSTNode(newVal);
+      return this;
+    }  
+    
+    while(runner)
+      {
+        if(newVal < runner.data)
+        {    
+          if(runner.left == null) 
+          {
+            runner.left = new BSTNode(newVal);
+            return this
+          }          
+          else
+          {
+          runner = runner.left
+          }  
+        }
+        
+        else if(newVal > runner.data)
+        { 
+          if(runner.right == null)
+          {
+            runner.right = new BSTNode(newVal);
+            return this
+          }
+            
+          else
+          {
+          runner = runner.right
+          }
+        }
+          
+        else
+        {
+          console.log("Value is already in the tree.")
+          return false
+        }
+      }
+      
+  }
+
+  /**
+   * Inserts a new node with the given newVal in the right place to preserver
+   * the order of this tree.
+   * - Time: O(?).
+   * - Space: O(?).
+   * @param {number} newVal The data to be added to a new node.
+   * @param {Node} curr The node that is currently accessed from the tree as
+   *    the tree is being traversed.
+   * @returns {BinarySearchTree} This tree.
+   */
+
+  insertRecursive(newVal, curr = this.root) {
+    if(!curr) {
+      this.root = new BSTNode(newVal)
+      return this
+    }
+    if(newVal < curr.data) {
+      if(curr.left === null){
+        curr.left = new BSTNode(newVal)
+          return this
+      }
+      return this.insertRecursive(newVal, curr.left)
+    }else{
+      if (curr.right === null) {
+        curr.right = new BSTNode(newVal)
+        return this
+      }
+      return this.insertRecursive(newVal, curr.right)  
+    }
+  }
+    
 
   // HELPER METHOD
   // Logs this tree horizontally with the root on the left.
@@ -189,7 +276,7 @@ class BinarySearchTree {
 
 const emptyTree = new BinarySearchTree();
 const oneNodeTree = new BinarySearchTree();
-oneNodeTree.root = new BSTNode(10);
+oneNodeTree.insert(10);
 // oneNodeTree.print()
 
 /* twoLevelTree
@@ -199,9 +286,9 @@ oneNodeTree.root = new BSTNode(10);
     5     15
 */
 const twoLevelTree = new BinarySearchTree();
-twoLevelTree.root = new BSTNode(10);
-twoLevelTree.root.left = new BSTNode(5);
-twoLevelTree.root.right = new BSTNode(15);
+twoLevelTree.insert(10);
+twoLevelTree.insert(5);
+twoLevelTree.insert(15);
 // twoLevelTree.print()
 
 /* threeLevelTree 
@@ -213,30 +300,12 @@ twoLevelTree.root.right = new BSTNode(15);
 2   4  13  20
 */
 const threeLevelTree = new BinarySearchTree();
-threeLevelTree.root = new BSTNode(10);
-threeLevelTree.root.left = new BSTNode(5);
-threeLevelTree.root.left.left = new BSTNode(2);
-threeLevelTree.root.left.right = new BSTNode(4);
-threeLevelTree.root.right = new BSTNode(15);
-threeLevelTree.root.right.right = new BSTNode(20);
-threeLevelTree.root.right.left = new BSTNode(13);
+twoLevelTree.insert(10);
+twoLevelTree.insert(5);
+twoLevelTree.insert(2);
+twoLevelTree.insert(4);
+twoLevelTree.insert(15);
+twoLevelTree.insert(20);
+twoLevelTree.insert(13);
+
 threeLevelTree.print()
-console.log(threeLevelTree.minRecursive())
-console.log(threeLevelTree.maxRecursive())
-
-twoLevelTree.print()
-console.log(twoLevelTree.minRecursive())
-console.log(twoLevelTree.maxRecursive())
-
-console.log("empty tree test")
-console.log(emptyTree.minRecursive())
-console.log(emptyTree.maxRecursive())
-
-console.log(threeLevelTree.min())
-console.log(threeLevelTree.max())
-
-console.log(twoLevelTree.min())
-console.log(twoLevelTree.max())
-
-console.log(emptyTree.min())
-console.log(emptyTree.max())
