@@ -51,7 +51,7 @@
 ## Exam
 
 ### Requirements & Details
-1. completed & submitted 90% of core assignments (9/10)
+1. completed & submitted 90% of core assignments (10/11)
 2. Offical exam day: Week 3 Day 3. (No algo on that day)
 3. If you are taking the exam on other dates, you have to attend the algo session first. 
 3. Last day of exam: Week 4 Day 3 (Next Wednesday)
@@ -73,10 +73,9 @@
 3. TIPS: DO NOT PRE-BUILD EVERYTHING BEFORE THE EXAM
 
 ### During the exam
-1. Wireframe will be explained in the wireframe room.
-2. WIREFRAME ROOM --- when you have seen the wireframe, you have 30 mins to start the exam
+2. Exam code will be given in the preparation room
 2. Stay in your own room on Zoom by yourself
-3. If you want to ask for help/grading, send a message on discord in our channel tag @dojo_Heidi_Chen, @dojo_Emilie_Wu
+3. If you want to ask for help/grading, send a message on our discord channel and tag @dojo_Heidi_Chen, @dojo_David_Moore
 
 ### Getting graded
 1. Live grading
